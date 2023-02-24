@@ -1,3 +1,3 @@
 # KaseiCoin
 
-[validation_mov](Evaluation_Evidence/KaseiCoin_validation.mov)
+[video](https://olegreg762-kaseicoin-videoplayer-c70xt2.streamlit.app/)
