@@ -9,7 +9,6 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 // * Crowdsale
 // * MintedCrowdsale
 contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale {
-    
     // Provide parameters for all of the features of your crowdsale, such as the `rate`, `wallet` for fundraising, and `token`.
     constructor(
         uint rate,
@@ -21,34 +20,30 @@ contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale {
     }
 }
 
-/*
+
 contract KaseiCoinCrowdsaleDeployer {
     // Create an `address public` variable called `kasei_token_address`.
-    // YOUR CODE HERE!
-    // Create an `address public` variable called `kasei_crowdsale_address`.
-    // YOUR CODE HERE!
-
+    address public kasei_token_address;
+    // Create an `address public` variable called `kasei_crowdsale_address`. 
+    address public kasei_crowdsale_address;
     // Add the constructor.
-    constructor(
-       // YOUR CODE HERE!
+    constructor(  
+       string memory name,
+       string memory symbol,
+       address payable wallet
     ) public {
-        // Create a new instance of the KaseiCoin contract.
-        // YOUR CODE HERE!
-        
-        // Assign the token contract’s address to the `kasei_token_address` variable.
-        // YOUR CODE HERE!
-
-        // Create a new instance of the `KaseiCoinCrowdsale` contract
-        // YOUR CODE HERE!
-            
-        // Aassign the `KaseiCoinCrowdsale` contract’s address to the `kasei_crowdsale_address` variable.
-        // YOUR CODE HERE!
-
-        // Set the `KaseiCoinCrowdsale` contract as a minter
-        // YOUR CODE HERE!
-        
+        // Create a new instance of the KaseiCoin contract.      
+        KaseiCoin token = new KaseiCoin(name, symbol, 0);
+        // Assign the token contract’s address to the `kasei_token_address` variable.      
+        kasei_token_address = address(token);
+        // Create a new instance of the `KaseiCoinCrowdsale` contract    
+        KaseiCoinCrowdsale kasei_coin_crowdsale =
+        // Aassign the `KaseiCoinCrowdsale` contract’s address to the `kasei_crowdsale_address` variable.        
+            new KaseiCoinCrowdsale(1, wallet, token);
+        // Set the `KaseiCoinCrowdsale` contract as a minter        
+        kasei_crowdsale_address = address(kasei_coin_crowdsale);
         // Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
-        // YOUR CODE HERE!
+        token.addMinter(kasei_crowdsale_address);
+        token.renounceMinter();
     }
 }
-*/
