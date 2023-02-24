@@ -1,3 +1,6 @@
 # KaseiCoin
 
-[![Watch the video](https://olegreg762-kaseicoin-videoplayer-c70xt2.streamlit.app/)
+[![Watch video](Evaluation_Evidence/KaseiCoin_compile.png)](Evaluation_Evidence/KaseiCoin_validation.mp4)
+
+
+
